@@ -68,12 +68,12 @@ $(function() {
         /*We call the first loadFeed passsing a callback that will executes when the loadFeed fucntion finishes it process and the the variables grabs the value*/
         loadFeed(0, function(){
           firstFeed = $('.feed').html();
-        });
         /*We call loadFeed again but pasing different feed and grabing that data in secondFeed variable*/
-        loadFeed(1, function(){
-          secondFeed = $('.feed').html();
+          loadFeed(1, function(){
+            secondFeed = $('.feed').html();
           /*We executes done() so now beforeEach is done and the test can be evaluated*/
-          done();
+            done();
+          });
         });
       });
 
