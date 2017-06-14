@@ -61,23 +61,26 @@ $(function() {
     });
 
     describe('New Feed Selection', function() {
-
+      /*The variables that are going to take the value of each feed container*/
       var firstFeed, secondFeed;
-
+      /*We pass the done callback that will executes as soon as the process is done*/
       beforeEach(function(done) {
+        /*We call the first loadFeed passsing a callback that will executes when the loadFeed fucntion finishes it process and the the variables grabs the value*/
         loadFeed(0, function(){
           firstFeed = $('.feed').html();
         });
+        /*We call loadFeed again but pasing different feed and grabing that data in secondFeed variable*/
         loadFeed(1, function(){
           secondFeed = $('.feed').html();
+          /*We executes done() so now beforeEach is done and the test can be evaluated*/
           done();
         });
       });
 
-      it('the new feed should be different', function() {
+      it('should be different', function() {
+        /*We compare the content in the two variables and it is supossed to be different as we are loading different feed*/
         expect(firstFeed).not.toEqual(secondFeed);
       });
-
     });
   });
 
