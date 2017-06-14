@@ -65,16 +65,19 @@ $(function() {
       var firstFeed, secondFeed;
 
       beforeEach(function(done) {
-        loadFeed(0, done);
-        firstFeed = $('.feed').html();
-        done();
-        loadFeed(1, done);
-        secondFeed = $('.feed').html();
+        loadFeed(0, function(){
+          firstFeed = $('.feed').html();
+        });
+        loadFeed(1, function(){
+          secondFeed = $('.feed').html();
+          done();
+        });
       });
 
-      it('should be different', function() {
-        expect(firstFeed).not.toBe(secondFeed);
+      it('the new feed should be different', function() {
+        expect(firstFeed).not.toEqual(secondFeed);
       });
+
     });
   });
 
